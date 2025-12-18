@@ -81,7 +81,7 @@ Le déploiement de FUAM est très simple grâce à une automatisation maximale. 
 
 ## 3. Importer et exécuter le notebook
 
-- Importez le notebook **Deploy_FUAM.ipynb** que vous venez de télécharger dans votre espace de travail FUAM.
+- Importez le notebook **Deploy_FUAM.ipynb** (FUAM_Notebook/Deploy_FUAM.ipynb) que vous venez de télécharger dans votre espace de travail FUAM.
 
 ![](Deploiement/FUAM_basic_deployment_process_3_1.png)
 
