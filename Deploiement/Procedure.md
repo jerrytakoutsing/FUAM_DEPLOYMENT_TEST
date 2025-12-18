@@ -71,3 +71,9 @@ Le déploiement de FUAM est très simple grâce à une automatisation maximale. 
   - _Les principaux de service peuvent utiliser les API Fabric_ - [learn.microsoft.com](https://learn.microsoft.com/en-us/fabric/admin/enable-service-principal-admin-apis)
 
   - _Les principaux de service peuvent accéder aux API d'administration en lecture seule_ - [learn.microsoft.com](https://learn.microsoft.com/en-us/fabric/admin/enable-service-principal-admin-apis)
+
+### 2.2 Créer un espace de travail
+
+- Créez un nouvel espace de travail « FUAM » (le nom peut être modifié), doté d'une capacité P ou F.
+
+- (**Facultatif**) Téléchargez le [logo de l'espace de travail](Deploiement/icon_FUAM_workspace.png) et ajoutez-le à l'espace de travail FUAM.
