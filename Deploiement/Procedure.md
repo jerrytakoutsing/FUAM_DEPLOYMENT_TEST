@@ -18,11 +18,11 @@ FUAM n'est pas un service officiel de Microsoft. Il s'agit d'un accélérateur d
 
 Prérequis
 
-Une capacité Power BI ou Fabric (les espaces de travail partagés PPU et Pro ne sont pas pris en charge)
+- Une capacité Power BI ou Fabric (les espaces de travail partagés PPU et Pro ne sont pas pris en charge)
 
-Possibilité de créer un principal de service sur votre locataire
+- Possibilité de créer un principal de service sur votre locataire
 
-Possibilité de créer un espace de travail sur votre locataire
+- Possibilité de créer un espace de travail sur votre locataire
 
 Un compte utilisateur disposant de droits permanents d'administrateur Fabric EntraID
 
