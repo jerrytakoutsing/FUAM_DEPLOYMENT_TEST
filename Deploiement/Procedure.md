@@ -1,38 +1,56 @@
-- **Capacity Utilization**
-    - Please note that FUAM items only consume your capacity in CUs.
-    - FUAM is designed to minimize your capacity consumption. However, FUAM's CU consumption depends heavily on how often you run the pipeline and how many users use the FUAM report.
+# Déploiement de FUAM
 
-- **Testing**
-    - Please first test the solution on a non-production Fabric SKU without impacting other workloads on your tenant.
+Le déploiement de FUAM est très simple grâce à une automatisation maximale. FUAM sera déployé sur votre tenant, dans un espace de travail.
 
-- **Lifecycle** 
+## Informations importantes
 
-Le bloc-notes de déploiement prend en charge les déploiements initiaux et les mises à jour des éléments FUAM. Une fois les mises à jour FUAM disponibles dans le référentiel, il vous suffit d'exécuter ce même bloc-notes de déploiement dans votre espace de travail. Les éléments seront alors mis à jour (écrasés) en fonction de leur nom.
-Soutien
+- **Utilisation de la capacité**
 
-FUAM n'est pas un service officiel de Microsoft. Il s'agit d'un accélérateur de solutions piloté par la communauté.
+- Veuillez noter que les éléments FUAM consomment votre capacité uniquement en unités de calcul (CU).
+
+- FUAM est conçu pour minimiser votre consommation de capacité. Toutefois, la consommation de CU de FUAM dépend fortement de la fréquence d'exécution du pipeline et du nombre d'utilisateurs du rapport FUAM.
+
+- **Tests**
+
+- Veuillez d'abord tester la solution sur une référence Fabric hors production, sans impacter les autres charges de travail de votre environnement.
+
+- **Cycle de vie**
+
+- Le bloc-notes de déploiement prend en charge les déploiements initiaux et les mises à jour des éléments FUAM. Une fois les mises à jour de FUAM disponibles dans le référentiel, vous pouvez simplement exécuter le même bloc-notes de déploiement dans votre espace de travail. Les éléments seront alors mis à jour (écrasés) en fonction de leur nom.
+
+- **Cycle de vie**
+
+- Le bloc-notes de déploiement prend en charge les déploiements initiaux et les mises à jour des éléments FUAM. Une fois les mises à jour de FUAM disponibles dans le référentiel, vous pouvez simplement exécuter le même bloc-notes de déploiement dans votre espace de travail. Les éléments seront alors mis à jour (écrasés) en fonction de leur nom.
+
+- **Support**
+
+- FUAM n'est **pas** un service Microsoft officiel. Il s'agit d'un accélérateur de solutions piloté par la communauté.
 
 
-
-Prérequis
+## Prérequis
 
 - Une capacité Power BI ou Fabric (les espaces de travail partagés PPU et Pro ne sont pas pris en charge)
 
-- Possibilité de créer un principal de service sur votre locataire
+- Possibilité de **créer** un **principal de service** sur votre locataire
 
-- Possibilité de créer un espace de travail sur votre locataire
+- Possibilité de **créer** un **espace de travail** sur votre locataire
 
-Un compte utilisateur disposant de droits permanents d'administrateur Fabric EntraID
+- Un compte utilisateur disposant des droits EntraID d'**administrateur Fabric** permanents
 
-Vous pouvez également utiliser un SPN via Azure Key Vault.
-Pour plus de détails, veuillez lire l'article « Autorisation et authentification de FUAM ».
-Activation des paramètres d'administrateur pour le compte utilisateur qui déploie FUAM :
+- Vous pouvez également utiliser un SPN via Azure Key Vault
 
-Les utilisateurs peuvent créer des éléments Fabric pour les administrateurs d'espace de travail FUAM - learn.microsoft.com
-Autoriser les points de terminaison XMLA et analyser dans Excel avec des modèles sémantiques locaux – learn.microsoft.com
-Application Fabric Capacity Metrics (espace de travail) avec capacité P ou F associée et point de terminaison XMLA activé (au moins en lecture)
+- Pour plus d'informations, veuillez consulter l'article [Autorisation et authentification de FUAM](/monitoring/fabric-unified-admin-monitoring/media/documentation/FUAM_Authorization.md)
 
-Versions compatibles de l'application Capacity Metrics : v44 ou antérieures
-Avant de procéder à la mise à jour, veuillez consulter [ce site] pour vérifier quelles versions de l'application Capacity Metrics sont compatibles avec FUAM.
+- Paramètres d'administration activés pour le compte utilisateur déployant FUAM :
 
-Facultatif : possibilité d’accéder à un coffre de clés Azure sur votre locataire
+- _Les utilisateurs peuvent créer des éléments Fabric_ pour les administrateurs d'espace de travail FUAM - [learn.microsoft.com](https://learn.microsoft.com/en-us/fabric/admin/fabric-switch)
+
+- _Autoriser les points de terminaison XMLA et l'analyse dans Excel avec les modèles sémantiques locaux_ - [learn.microsoft.com](https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-integration#allow-xmla-endpoints-and-analyze-in-excel-with-on-premises-datasets)
+
+- Application Fabric Capacity Metrics (espace de travail) **avec capacité P ou F associée** avec **point de terminaison XMLA activé** (au moins en lecture)
+
+- Versions compatibles de l'application Capacity Metrics : v44 ou antérieure
+
+- Avant de mettre à jour, veuillez consulter [ce site] pour vérifier les versions compatibles. L'application Capacity Metrics est compatible avec FUAM.
+
+- **Facultatif :** Possibilité d'accéder à un coffre de clés Azure sur votre locataire.
