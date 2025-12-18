@@ -51,3 +51,23 @@ Le déploiement de FUAM est très simple grâce à une automatisation maximale. 
   - Versions compatibles de l'application Capacity Metrics : v44 ou antérieure.
 
 - **Facultatif :** Possibilité d'accéder à un coffre de clés Azure sur votre locataire.
+
+# Étapes
+
+## 1. Télécharger le notebook
+
+- Téléchargez le notebook [Deploy_FUAM.ipynb](FUAM_Notebook/Deploy_FUAM.ipynb) depuis le dossier scripts sur votre ordinateur.
+
+## 2. Préparation de votre environnement
+
+### 2.1 Création et autorisation du principal de service
+
+- Créez un principal de service avec un secret client dans Azure Entra ID, sans aucune autorisation d'API.
+
+  > **Important :** L'activation de certaines autorisations de l'API Power BI peut entraîner des erreurs lors de l'exécution ultérieure de pipelines.
+
+- Ajoutez le principal de service à un groupe autorisé pour les deux paramètres d'administration suivants :
+
+  - _Les principaux de service peuvent utiliser les API Fabric_ - [learn.microsoft.com](https://learn.microsoft.com/en-us/fabric/admin/enable-service-principal-admin-apis)
+
+  - _Les principaux de service peuvent accéder aux API d'administration en lecture seule_ - [learn.microsoft.com](https://learn.microsoft.com/en-us/fabric/admin/enable-service-principal-admin-apis)
