@@ -1,13 +1,11 @@
-Important à savoir
+- **Capacity Utilization**
+    - Please note that FUAM items only consume your capacity in CUs.
+    - FUAM is designed to minimize your capacity consumption. However, FUAM's CU consumption depends heavily on how often you run the pipeline and how many users use the FUAM report.
 
-Utilisation des capacités
+- **Testing**
+    - Please first test the solution on a non-production Fabric SKU without impacting other workloads on your tenant.
 
-Veuillez noter que les éléments FUAM ne consomment votre capacité qu'en unités de contrôle (CU).
-FUAM est conçu pour minimiser votre consommation de capacité. Cependant, la consommation d'unités de calcul (CU) de FUAM dépend fortement de la fréquence d'exécution du pipeline et du nombre d'utilisateurs du rapport FUAM.
-Essai
-
-Veuillez d'abord tester la solution sur une référence Fabric hors production sans impacter les autres charges de travail de votre locataire.
-Cycle de vie
+- **Lifecycle** 
 
 Le bloc-notes de déploiement prend en charge les déploiements initiaux et les mises à jour des éléments FUAM. Une fois les mises à jour FUAM disponibles dans le référentiel, il vous suffit d'exécuter ce même bloc-notes de déploiement dans votre espace de travail. Les éléments seront alors mis à jour (écrasés) en fonction de leur nom.
 Soutien
