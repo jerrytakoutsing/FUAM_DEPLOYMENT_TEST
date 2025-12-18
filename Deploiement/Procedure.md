@@ -1,4 +1,5 @@
 Important à savoir
+
 Utilisation des capacités
 
 Veuillez noter que les éléments FUAM ne consomment votre capacité qu'en unités de contrôle (CU).
@@ -35,4 +36,5 @@ Application Fabric Capacity Metrics (espace de travail) avec capacité P ou F as
 
 Versions compatibles de l'application Capacity Metrics : v44 ou antérieures
 Avant de procéder à la mise à jour, veuillez consulter [ce site] pour vérifier quelles versions de l'application Capacity Metrics sont compatibles avec FUAM.
+
 Facultatif : possibilité d’accéder à un coffre de clés Azure sur votre locataire
