@@ -100,3 +100,125 @@ Le déploiement de FUAM est très simple grâce à une automatisation maximale. 
 |Authentification|Service Principal| Service Principal|
 
 > **Gestion des erreurs :** En cas d’erreur, vous pourrez relancer le notebook. Il dispose d’un mécanisme de mise à jour qui agira comme une mise à jour des éléments.
+
+## 4. Ajouter des identifiants aux connexions
+
+- Dans Fabric, accédez à « Gérer les connexions et les passerelles » dans les Paramètres.
+
+- Configurez les identifiants des connexions avec les informations du principal de service récemment créé :
+
+![](Deploiement/FUAM_basic_deployment_process_4_1.png)
+
+> **Information :** Ces connexions sont utilisées dans les pipelines FUAM pour récupérer des données depuis les API REST. Si les identifiants sont incorrects ou si le secret a expiré, le pipeline échouera.
+
+## 5. Configurer l'application Métriques de capacité
+
+Nous vous recommandons de créer une nouvelle application Métriques de capacité (avec un espace de travail déployé automatiquement) dans votre locataire.
+
+- Créez une nouvelle application Métriques de capacité.
+
+- Configurez l'application comme d'habitude.
+
+- Accédez à l'espace de travail de l'application Métriques de capacité.
+
+- Associez cet espace de travail à une capacité P ou F.
+
+- Renommez-le « Métriques de capacité FUAM ».
+
+- Copiez le nom de l'espace de travail (par exemple, « Métriques de capacité FUAM ») et le nom du modèle sémantique (par exemple, « Métriques de capacité Fabric »).
+
+> **Information :** Le nom de l'espace de travail de la métrique de capacité sera utilisé ultérieurement comme valeur du paramètre **metric_workspace** dans le pipeline « Load_FUAM_Data_E2E », et le nom du modèle sémantique de la métrique de capacité sera utilisé ultérieurement comme valeur du paramètre **metric_dataset** dans le pipeline « Load_FUAM_Data_E2E ».
+
+> **Important :** Par défaut, l’espace de travail de l’application Métriques est créé avec une licence Pro. Si vous ne le modifiez pas pour une licence F/P, vous obtiendrez une erreur.
+
+## 6. Exécuter le pipeline d'orchestration
+
+> **Info :** Le pipeline **Load_FUAM_Data_E2E** est le pipeline d'orchestration principal de bout en bout de FUAM. Il contient et déclenche tous les autres sous-pipelines (modules FUAM) implémentés dans la solution.
+
+> Les sous-pipelines téléchargent toutes les données nécessaires via les API, et les notebooks référencés transforment et écrivent ces données dans les tables delta finales de FUAM_Lakehouse.
+
+- Accédez à votre espace de travail FUAM.
+
+- Recherchez l'élément « Load_FUAM_Data_E2E ».
+
+- Ouvrez le pipeline **Load_FUAM_Data_E2E**.
+
+Ce pipeline possède différents paramètres qui contrôlent le flux de chargement des données.
+
+
+|       Parameter Name         | Description                        |Allowed values                        |
+|----------------|-------------------------------|-----------------------------|
+|has_tenant_domains|If **true**, the tenant inventory is enriched with domain information. Use it only, if domains are in use at your tenant. **Default is false**        | true or false            |
+|extract_powerbi_artifacts_only|If **true**, the tenant inventory contains **only** semantic models, dataflows, datamarts, reports, dashboard and apps. If **false** the pipeline extracts Power BI **and** Fabric items. Currently, first-party workloads are supported only. **Default is false** | true or false |
+|metric_days_in_scope|Defines how many days should be extracted from the capacity metrics app. A maximum of 14 days can be extracted. For an initial load you can set it to the maximum and in subsequent runs reduce it to 2 days|range between **1** and **14**|
+|metric_workspace|This is the name _or_ id of the workspace where the capacity metrics app was deployed|string|
+|metric_dataset|This is the name _or_ id of the semantic model of the capacity metrics app |string|
+|activity_days_in_scope|It defines how many days in the past the activity must be retrieved from the API. Recommended to **use 28 for the initial load** and change the value to **2 for daily load**.| range between **2** and **28** |
+|display_data|If **true**, the notebooks will display more information about each relevant step at runtime. This is useful for debugging. **Default is false**| true or false |
+|optional_keyvault_name|**Optional**: If you have configured a key vault, enter the name of the key vault. Otherwise, simply leave this field blank. In this case, the Load_Inventory module will use the Notebook owner's identity.| empty or string|
+|optional_keyvault_sp_ tenantId_secret_name|**Optional**: If you have configured a key vault and its secrets, enter the name of the tenantId secret name. Otherwise, simply leave this field blank. In this case, the Load_Inventory module will use the Notebook owner's identity.|empty or string|
+|optional_keyvault_sp_ clientId_secret_name|**Optional**: If you have configured a key vault and its secrets, enter the name of the clientId secret name. Otherwise, simply leave this field blank. In this case, the Load_Inventory module will use the Notebook owner's identity.|empty or string|
+|optional_keyvault_sp_ secret_secret_name|**Optional**: If you have configured a key vault and its secrets, enter the name of the service principal's secret secret name. Otherwise, simply leave this field blank. In this case, the Load_Inventory module will use the Notebook owner's identity.|empty or string|
+
+- Exécutez le pipeline une fois. Cela chargera initialement les données dans FUAM_Lakehouse.
+    ![](Deploiement/FUAM_basic_deployment_process_5_1.png)
+
+> **Gestion des erreurs :**
+
+> Assurez-vous d’être connecté avec un utilisateur disposant des droits d’administrateur Fabric sur le locataire. Vous pouvez également ajouter les noms des clés secrètes de votre coffre de clés Azure aux valeurs du paramètre optional_keyvault_*.
+
+> Assurez-vous que l’utilisateur et le fournisseur de services (SP) sont membres du groupe d’activation des paramètres d’administration, comme indiqué précédemment.
+
+> Vérifiez les informations d’identification des connexions.
+
+> ou consultez la section « Remarques ».
+
+### 7.1 Actualiser le modèle sémantique Core_SM
+
+- Accédez à votre espace de travail FUAM
+
+- Recherchez l'élément « **FUAM_Core_SM** »
+
+- Cliquez sur « Actualiser » le modèle sémantique
+
+### 7.1 Actualiser le modèle sémantique Item_SM
+
+- Accédez à votre espace de travail FUAM
+
+- Recherchez l'élément « **FUAM_Item_SM** »
+
+- Cliquez sur « Actualiser » le modèle sémantique
+
+### 7.3 Ouvrir le rapport Power BI
+
+- Accédez à votre espace de travail FUAM
+
+- Recherchez l'élément « FUAM_Core_Report »
+
+- Ouvrez le rapport Power BI **FUAM_Core_Report**
+
+- Explorez les pages du rapport
+
+![](Deploiement/FUAM_basic_deployment_process_7_3.png)
+
+> **Gestion des erreurs :** En cas d’erreurs telles que « Impossible de rendre l’élément visuel », veuillez consulter la section « Remarques ».
+
+## 8. Planification du pipeline pour le chargement quotidien
+
+- Accédez à votre espace de travail FUAM.
+
+- Recherchez l'élément « Load_FUAM_Data_E2E ».
+
+- Ouvrez le pipeline **Load_FUAM_Data_E2E**.
+
+- (Recommandé) Modifiez la valeur du paramètre **metric_days_in_scope** à **2**.
+
+- (Recommandé) Modifiez la valeur du paramètre **activity_days_in_scope** à **2**.
+
+- Cliquez sur **Exécuter** -> **Planifier**.
+
+- Configurez la planification.
+
+![](Deploiement/FUAM_basic_deployment_process_8_1.png)
+
+Vous avez ainsi configuré le pipeline d'orchestration principal, qui sera exécuté quotidiennement. Les nouvelles valeurs des paramètres simulent un chargement incrémentiel. Les métriques de capacité et les journaux d'activité seront récupérés uniquement pour les deux derniers jours et intégrés à la table Lakehouse.
