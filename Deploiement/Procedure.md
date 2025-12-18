@@ -37,20 +37,19 @@ Le déploiement de FUAM est très simple grâce à une automatisation maximale. 
 
 - Un compte utilisateur disposant des droits EntraID d'**administrateur Fabric** permanents
 
-- Vous pouvez également utiliser un SPN via Azure Key Vault
+  - Vous pouvez également utiliser un SPN via Azure Key Vault
 
-- Pour plus d'informations, veuillez consulter l'article [Autorisation et authentification de FUAM](/monitoring/fabric-unified-admin-monitoring/media/documentation/FUAM_Authorization.md)
 
 - Paramètres d'administration activés pour le compte utilisateur déployant FUAM :
 
-- _Les utilisateurs peuvent créer des éléments Fabric_ pour les administrateurs d'espace de travail FUAM - [learn.microsoft.com](https://learn.microsoft.com/en-us/fabric/admin/fabric-switch)
+  - _Les utilisateurs peuvent créer des éléments Fabric_ pour les administrateurs d'espace de travail FUAM - [learn.microsoft.com](https://learn.microsoft.com/en-us/fabric/admin/fabric-switch)
 
-- _Autoriser les points de terminaison XMLA et l'analyse dans Excel avec les modèles sémantiques locaux_ - [learn.microsoft.com](https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-integration#allow-xmla-endpoints-and-analyze-in-excel-with-on-premises-datasets)
+  - _Autoriser les points de terminaison XMLA et l'analyse dans Excel avec les modèles sémantiques locaux_ - [learn.microsoft.com](https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-integration#allow-xmla-endpoints-and-analyze-in-excel-with-on-premises-datasets)
 
 - Application Fabric Capacity Metrics (espace de travail) **avec capacité P ou F associée** avec **point de terminaison XMLA activé** (au moins en lecture)
 
-- Versions compatibles de l'application Capacity Metrics : v44 ou antérieure
+  - Versions compatibles de l'application Capacity Metrics : v44 ou antérieure
 
-- Avant de mettre à jour, veuillez consulter [ce site] pour vérifier les versions compatibles. L'application Capacity Metrics est compatible avec FUAM.
+  - Avant de mettre à jour, veuillez consulter [ce site] pour vérifier les versions compatibles. L'application Capacity Metrics est compatible avec FUAM.
 
 - **Facultatif :** Possibilité d'accéder à un coffre de clés Azure sur votre locataire.
