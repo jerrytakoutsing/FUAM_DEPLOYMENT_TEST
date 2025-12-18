@@ -6,25 +6,25 @@ Le déploiement de FUAM est très simple grâce à une automatisation maximale. 
 
 - **Utilisation de la capacité**
 
-- Veuillez noter que les éléments FUAM consomment votre capacité uniquement en unités de calcul (CU).
+  - Veuillez noter que les éléments FUAM consomment votre capacité uniquement en unités de calcul (CU).
 
-- FUAM est conçu pour minimiser votre consommation de capacité. Toutefois, la consommation de CU de FUAM dépend fortement de la fréquence d'exécution du pipeline et du nombre d'utilisateurs du rapport FUAM.
+  - FUAM est conçu pour minimiser votre consommation de capacité. Toutefois, la consommation de CU de FUAM dépend fortement de la fréquence d'exécution du pipeline et du nombre d'utilisateurs du rapport FUAM.
 
 - **Tests**
 
-- Veuillez d'abord tester la solution sur une référence Fabric hors production, sans impacter les autres charges de travail de votre environnement.
+  - Veuillez d'abord tester la solution sur une référence Fabric hors production, sans impacter les autres charges de travail de votre environnement.
 
 - **Cycle de vie**
 
-- Le bloc-notes de déploiement prend en charge les déploiements initiaux et les mises à jour des éléments FUAM. Une fois les mises à jour de FUAM disponibles dans le référentiel, vous pouvez simplement exécuter le même bloc-notes de déploiement dans votre espace de travail. Les éléments seront alors mis à jour (écrasés) en fonction de leur nom.
+  - Le bloc-notes de déploiement prend en charge les déploiements initiaux et les mises à jour des éléments FUAM. Une fois les mises à jour de FUAM disponibles dans le référentiel, vous pouvez simplement exécuter le même bloc-notes de déploiement dans votre espace de travail. Les éléments seront alors mis à jour (écrasés) en fonction de leur nom.
 
 - **Cycle de vie**
 
-- Le bloc-notes de déploiement prend en charge les déploiements initiaux et les mises à jour des éléments FUAM. Une fois les mises à jour de FUAM disponibles dans le référentiel, vous pouvez simplement exécuter le même bloc-notes de déploiement dans votre espace de travail. Les éléments seront alors mis à jour (écrasés) en fonction de leur nom.
+  - Le bloc-notes de déploiement prend en charge les déploiements initiaux et les mises à jour des éléments FUAM. Une fois les mises à jour de FUAM disponibles dans le référentiel, vous pouvez simplement exécuter le même bloc-notes de déploiement dans votre espace de travail. Les éléments seront alors mis à jour (écrasés) en fonction de leur nom.
 
 - **Support**
 
-- FUAM n'est **pas** un service Microsoft officiel. Il s'agit d'un accélérateur de solutions piloté par la communauté.
+  - FUAM n'est **pas** un service Microsoft officiel. Il s'agit d'un accélérateur de solutions piloté par la communauté.
 
 
 ## Prérequis
