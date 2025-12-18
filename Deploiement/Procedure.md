@@ -77,3 +77,26 @@ Le déploiement de FUAM est très simple grâce à une automatisation maximale. 
 - Créez un nouvel espace de travail « FUAM » (le nom peut être modifié), doté d'une capacité P ou F.
 
 - (**Facultatif**) Téléchargez le [logo de l'espace de travail](Deploiement/icon_FUAM_workspace.png) et ajoutez-le à l'espace de travail FUAM.
+
+
+## 3. Importer et exécuter le notebook
+
+- Importez le notebook **Deploy_FUAM.ipynb** que vous venez de télécharger dans votre espace de travail FUAM.
+
+![](Deploiement/FUAM_basic_deployment_process_3_1.png)
+
+- Cliquez sur « Tout exécuter » dans le notebook.
+
+![](Deploiement/FUAM_basic_deployment_process_3_2.png)
+
+> **Info :** Le notebook créera **automatiquement** deux nouvelles connexions au cloud (sans identifiants). Vous pouvez également choisir vos propres noms si vous avez des conventions de nommage :
+
+| | Connection 1  | Connection 2 |
+|-------------| ------------- | ------------- |
+|Connection Name| fuam pbi-service-api admin  | fuam fabric-service-api admin  |
+|Connection Type| Web v2  | Web v2  |
+|Base Url| https://api.powerbi.com/v1.0/myorg/admin  | https://api.fabric.microsoft.com/v1/admin  |
+|Token Audience Url| https://analysis.windows.net/powerbi/api| https://api.fabric.microsoft.com|
+|Authentification|Service Principal| Service Principal|
+
+> **Gestion des erreurs :** En cas d’erreur, vous pourrez relancer le notebook. Il dispose d’un mécanisme de mise à jour qui agira comme une mise à jour des éléments.
