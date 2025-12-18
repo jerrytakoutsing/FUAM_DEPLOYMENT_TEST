@@ -48,8 +48,6 @@ Le déploiement de FUAM est très simple grâce à une automatisation maximale. 
 
 - Application Fabric Capacity Metrics (espace de travail) **avec capacité P ou F associée** avec **point de terminaison XMLA activé** (au moins en lecture)
 
-  - Versions compatibles de l'application Capacity Metrics : v44 ou antérieure
-
-  - Avant de mettre à jour, veuillez consulter [ce site] pour vérifier les versions compatibles. L'application Capacity Metrics est compatible avec FUAM.
+  - Versions compatibles de l'application Capacity Metrics : v44 ou antérieure.
 
 - **Facultatif :** Possibilité d'accéder à un coffre de clés Azure sur votre locataire.
