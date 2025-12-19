@@ -56,7 +56,7 @@ Le déploiement de FUAM est très simple grâce à une automatisation maximale. 
 
 ## 1. Télécharger le notebook
 
-- Téléchargez le notebook [Deploy_FUAM.ipynb](FUAM_Notebook/Deploy_FUAM.ipynb) depuis le dossier scripts sur votre ordinateur.
+- Téléchargez le notebook [Deploy_FUAM.ipynb](/FUAM_Notebook/Deploy_FUAM.ipynb) depuis le dossier scripts sur votre ordinateur.
 
 ## 2. Préparation de votre environnement
 
@@ -76,18 +76,18 @@ Le déploiement de FUAM est très simple grâce à une automatisation maximale. 
 
 - Créez un nouvel espace de travail « FUAM » (le nom peut être modifié), doté d'une capacité P ou F.
 
-- (**Facultatif**) Téléchargez le [logo de l'espace de travail](Deploiement/icon_FUAM_workspace.png) et ajoutez-le à l'espace de travail FUAM.
+- (**Facultatif**) Téléchargez le [logo de l'espace de travail](/Deploiement/icon_FUAM_workspace.png) et ajoutez-le à l'espace de travail FUAM.
 
 
 ## 3. Importer et exécuter le notebook
 
 - Importez le notebook **Deploy_FUAM.ipynb** (FUAM_Notebook/Deploy_FUAM.ipynb) que vous venez de télécharger dans votre espace de travail FUAM.
 
-![](Deploiement/FUAM_basic_deployment_process_3_1.png)
+![](/Deploiement/FUAM_basic_deployment_process_3_1.png)
 
 - Cliquez sur « Tout exécuter » dans le notebook.
 
-![](Deploiement/FUAM_basic_deployment_process_3_2.png)
+![](/Deploiement/FUAM_basic_deployment_process_3_2.png)
 
 > **Info :** Le notebook créera **automatiquement** deux nouvelles connexions au cloud (sans identifiants). Vous pouvez également choisir vos propres noms si vous avez des conventions de nommage :
 
@@ -107,7 +107,7 @@ Le déploiement de FUAM est très simple grâce à une automatisation maximale. 
 
 - Configurez les identifiants des connexions avec les informations du principal de service récemment créé :
 
-![](Deploiement/FUAM_basic_deployment_process_4_1.png)
+![](/Deploiement/FUAM_basic_deployment_process_4_1.png)
 
 > **Information :** Ces connexions sont utilisées dans les pipelines FUAM pour récupérer des données depuis les API REST. Si les identifiants sont incorrects ou si le secret a expiré, le pipeline échouera.
 
@@ -161,7 +161,7 @@ Ce pipeline possède différents paramètres qui contrôlent le flux de chargeme
 |optional_keyvault_sp_ secret_secret_name|**Optional**: If you have configured a key vault and its secrets, enter the name of the service principal's secret secret name. Otherwise, simply leave this field blank. In this case, the Load_Inventory module will use the Notebook owner's identity.|empty or string|
 
 - Exécutez le pipeline une fois. Cela chargera initialement les données dans FUAM_Lakehouse.
-    ![](Deploiement/FUAM_basic_deployment_process_5_1.png)
+    ![](/Deploiement/FUAM_basic_deployment_process_5_1.png)
 
 > **Gestion des erreurs :**
 
@@ -199,7 +199,7 @@ Ce pipeline possède différents paramètres qui contrôlent le flux de chargeme
 
 - Explorez les pages du rapport
 
-![](Deploiement/FUAM_basic_deployment_process_7_3.png)
+![](/Deploiement/FUAM_basic_deployment_process_7_3.png)
 
 > **Gestion des erreurs :** En cas d’erreurs telles que « Impossible de rendre l’élément visuel », veuillez consulter la section « Remarques ».
 
@@ -219,6 +219,6 @@ Ce pipeline possède différents paramètres qui contrôlent le flux de chargeme
 
 - Configurez la planification.
 
-![](Deploiement/FUAM_basic_deployment_process_8_1.png)
+![](/Deploiement/FUAM_basic_deployment_process_8_1.png)
 
 Vous avez ainsi configuré le pipeline d'orchestration principal, qui sera exécuté quotidiennement. Les nouvelles valeurs des paramètres simulent un chargement incrémentiel. Les métriques de capacité et les journaux d'activité seront récupérés uniquement pour les deux derniers jours et intégrés à la table Lakehouse.
