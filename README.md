@@ -24,3 +24,5 @@ Utilisation et adoption des fonctionnalités
 - Rapport sur les indicateurs d'utilisation
 
 FUAM a pour objectif de fournir une vue plus globale des différentes informations pouvant être extraites de Fabric, permettant à ses utilisateurs d'analyser à un niveau très élevé, mais aussi d'explorer en profondeur des artefacts spécifiques pour une analyse de données plus fine.
+
+#### [Click here to **deploy** FUAM](/Deploiement/Procedure.md)
