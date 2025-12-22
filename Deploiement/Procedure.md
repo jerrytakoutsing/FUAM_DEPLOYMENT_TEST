@@ -281,12 +281,12 @@ Dans certains cas, les rapports génèrent une erreur en raison de champs manqua
 
     4) Ensuite, importez les fichiers suivants dans la structure indiquée dans la première capture d'écran :
 
-      - monitoring/fabric-unified-admin-monitoring/config/deployment_order.json
+        - monitoring/fabric-unified-admin-monitoring/config/deployment_order.json
 
-      - monitoring/fabric-unified-admin-monitoring/config/item_config.yaml
+        - monitoring/fabric-unified-admin-monitoring/config/item_config.yaml
 
-      - monitoring/fabric-unified-admin-monitoring/data/table_definitions.snappy.parquet
-        src.zip
+        - monitoring/fabric-unified-admin-monitoring/data/table_definitions.snappy.parquet
+          src.zip
     5) Exécutez les cellules du notebook individuellement, en ignorant le téléchargement des fichiers de la cellule 7.
 
     6) Tout devrait alors être présent.
