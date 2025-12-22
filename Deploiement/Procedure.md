@@ -222,3 +222,71 @@ Ce pipeline possède différents paramètres qui contrôlent le flux de chargeme
 ![](/Deploiement/FUAM_basic_deployment_process_8_1.png)
 
 Vous avez ainsi configuré le pipeline d'orchestration principal, qui sera exécuté quotidiennement. Les nouvelles valeurs des paramètres simulent un chargement incrémentiel. Les métriques de capacité et les journaux d'activité seront récupérés uniquement pour les deux derniers jours et intégrés à la table Lakehouse.
+
+---------------
+
+## Félicitations !
+
+Vous avez déployé et configuré FUAM.
+
+-------------
+
+
+# Remarques
+
+#### Limitations
+- L'API Scanner (learn.microsoft.com) est limitée à 500 requêtes pour 100 espaces de travail. Si votre organisation compte plus de 50 000 espaces de travail associés à des capacités, le pipeline devra attendre une heure avant le prochain appel à l'API Scanner. Cela peut allonger la durée d'exécution du pipeline.
+
+- Des erreurs peuvent survenir si certains types d'éléments n'ont pas encore été créés sur le locataire. Nous avons tenté de réduire ces erreurs en les interceptant, mais sur les locataires relativement peu sollicités, elles peuvent néanmoins impacter l'exécution.
+
+- Le pipeline « Load_Inventory_E2E » utilise l’identité du propriétaire du notebook pour interroger l’API Scanner. Si l’utilisateur ne dispose pas des autorisations d’administrateur Fabric, le notebook échouera. Utilisez Azure Key Vault pour exécuter les appels à l’API Scanner dans le contexte du principal de service.
+
+Dans certains cas, les rapports génèrent une erreur en raison de champs manquants (dans le modèle sémantique), non fournis par l’API. Dans ce cas, veuillez suivre les étapes suivantes :
+
+  - Actualisez le modèle sémantique sous-jacent.
+
+  - Ouvrez le modèle sémantique.
+
+  - Cliquez sur « Modifier les tables ».
+
+  - Cliquez sur « Confirmer » pour actualiser les métadonnées du modèle sémantique.
+
+  - Testez l’actualisation du modèle sémantique et le rapport.
+    
+- Dans le pipeline 'FUAM_Load_Data_E2E', le paramètre activity_days_in_scope prend actuellement en charge la valeur minimale 2.
+
+#### Erreurs connues
+
+- Certains problèmes connus affectent les locataires « vides » ou de démonstration, où certains objets sont absents, ce qui provoque des erreurs :
+
+  - Si aucune description d'espace de travail n'est définie pour l'ensemble du locataire, ajoutez-en une. Cela corrigera l'erreur.
+
+  - En l'absence d'actualisations planifiées régulières sur le locataire, l'exécution des actualisations de capacité peut échouer. Pour résoudre ce problème, créez une actualisation planifiée et exécutez-la plusieurs fois.
+
+  - Si aucun paramètre de locataire délégué n'est défini dans l'une des capacités, l'étape d'extraction échouera. Vous pouvez supprimer cette étape si elle n'est pas nécessaire pour votre locataire.
+
+  - Essayez d'exécuter le notebook « Init_FUAM_Lakehouse_Tables » pour créer automatiquement les colonnes manquantes.
+
+- Déploiement en cas de lien privé (possible avec des étapes manuelles supplémentaires)
+
+  - Dans certains cas, le notebook de déploiement ne parvient pas à télécharger le contenu requis depuis le dépôt.
+
+  - Dans ce cas, suivez les étapes suivantes pour déployer FUAM :
+
+    1) Exécutez le notebook (la cellule commençant par : `_src_file_path = "./builtin/data/table_definitions.snappy.parquet"_` échouera).
+
+    2) Clonez l'intégralité du dépôt avec Git afin de télécharger tous les fichiers sur votre ordinateur.
+
+    3) Créez manuellement une archive ZIP (`src.zip`) pour le dossier `src`. Le fichier zip doit contenir uniquement le             dossier src, comme ceci : ![image](/Deploiement/FUAM_deployment_process_with_private_link_limitation.png)
+
+    4) Ensuite, importez les fichiers suivants dans la structure indiquée dans la première capture d'écran :
+
+      - monitoring/fabric-unified-admin-monitoring/config/deployment_order.json
+
+      - monitoring/fabric-unified-admin-monitoring/config/item_config.yaml
+
+      - monitoring/fabric-unified-admin-monitoring/data/table_definitions.snappy.parquet
+        src.zip
+    5) Exécutez les cellules du notebook individuellement, en ignorant le téléchargement des fichiers de la cellule 7.
+
+    6) Tout devrait alors être présent.
